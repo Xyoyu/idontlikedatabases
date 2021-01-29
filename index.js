@@ -8,7 +8,7 @@ module.exports = class Database {
     constructor(path) {
         this.path = path
         if (!fs.existsSync(path)) {
-            fs.writeFileSync(path, '{}', 'utf8')
+            fs.writeFileSync(path, Buffer.from('{}', 'utf8').toString('base64'), 'utf8')
         }
     }
 
